@@ -1,0 +1,118 @@
+Yes, Vishal! In professional websites, those thin horizontal and vertical lines are often created using CSS borders, pseudo-elements (`::before` and `::after`), gradients, or the `outline` property — not necessarily an `<hr>` or a separate `div`.
+
+Here are the common techniques you'll see on modern websites.
+
+## 1. Using `border` — very common
+
+Features
+
+01
+
+Documentation
+
+02
+
+Community
+
+03
+
+```
+/* Horizontal line */
+.card {
+  border-bottom: 1px solid #334155;
+}
+
+/* Vertical line */
+.sidebar {
+  border-right: 1px solid #334155;
+}
+```
+
+This is commonly used for navigation menus, cards, sidebars, and section separators.
+
+## 2. Using pseudo-elements — `::before` and `::after`
+
+These create decorative lines without adding extra HTML elements.
+
+OUR SERVICES
+
+# Build something great
+
+A decorative line under a heading
+
+```
+h1 {
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #38bdf8;
+  margin-top: 12px;
+}
+```
+
+Where used? Under headings, animated navigation indicators, and decorative accents.
+
+## 3. Using `linear-gradient()` — modern decorative lines
+
+A gradient can create a line that fades at its edges, which is common in dark developer websites.
+
+### Developer Tools
+
+A glowing gradient separator
+
+```
+.separator {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #38bdf8,
+    #8b5cf6,
+    transparent
+  );
+}
+```
+
+You can also use `linear-gradient()` for vertical lines by changing the direction and dimensions.
+
+## 4. Using `outline` — around an element
+
+A bordered panel
+
+Outlines can draw an outer line around an element.
+
+```
+.card {
+  outline: 1px solid #64748b;
+}
+```
+
+Unlike a border, an outline doesn't take up space in the element's layout. It's more commonly used for focus indicators or outer visual decoration than for separators.
+
+## 5. Using `box-shadow` — subtle lines and edges
+
+```
+.navbar {
+  box-shadow: 0 1px 0 #334155;
+}
+```
+
+This creates a thin horizontal edge under a navigation bar without using `border-bottom`.
+
+## Which technique should you learn first?
+
+| What you see on a website                 | Likely technique          |
+| ----------------------------------------- | ------------------------- |
+| Thin line between sections                | `border-bottom` or `<hr>` |
+| Vertical line between sidebar and content | `border-right`            |
+| Short line below a heading                | `::after`                 |
+| Fading or glowing line                    | `linear-gradient()`       |
+| Thin line below a navbar                  | `box-shadow`              |
+| Animated line under a link                | `::after` + transition    |
+
+My recommendation: Since you're practicing website layouts, learn `border`, `::before` / `::after`, and `linear-gradient()` first. Those three techniques will help you recreate many of the decorative lines you see on websites such as developer tool landing pages.
